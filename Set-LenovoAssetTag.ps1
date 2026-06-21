@@ -19,7 +19,7 @@ $VerbosePreference = "Continue"
 If ((Get-CimInstance -ClassName "Win32_ComputerSystem").Manufacturer -eq "LENOVO") {
 
     # Variables
-    $input = Get-Content -Path $env:SystemDrive\OSDCloud\Scripts\AssetTag.txt
+    $input = Get-Content -Path $env:SystemDrive\sources\AssetTag.txt
     $url = "https://download.lenovo.com/pccbbs/mobiles/giaw03ww.exe" # URL to WinAIA Utility
     $pkg = Split-Path $url -Leaf
     $tempDir = Join-Path (Join-Path $env:ProgramData "Lenovo") "Temp"
@@ -33,8 +33,8 @@ If ((Get-CimInstance -ClassName "Win32_ComputerSystem").Manufacturer -eq "LENOVO
  
     # Download utility via HTTPS
     Write-Output "Downloading WinAIA Utility"
-    Invoke-WebRequest -Uri $url -Outfile "$tempdir\$pkg"
-    If (Test-Path -Path "$tempdir\$pkg") {
+    Invoke-WebRequest -Uri $url -Outfile "$tempDir\$pkg"
+    If (Test-Path -Path "$tempDir\$pkg") {
 
         # Set location of WinAIA Package and extract contents
         Set-Location $tempDir
