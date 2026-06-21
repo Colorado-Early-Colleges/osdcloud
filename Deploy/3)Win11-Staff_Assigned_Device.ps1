@@ -4,7 +4,7 @@
 do {
     $assetTag = Read-Host "Please enter the asset tag number (4 to 5 digit number)"
     if ($assetTag -match '^\d{4,5}$') {
-        $assetTag | Out-File -FilePath "X:\OSDCloud\Config\Scripts\AssetTag.txt" -Encoding ascii -Force
+        $assetTag | Out-File -FilePath "X:\sources\AssetTag.txt" -Encoding ascii -Force
     }
 } while ($assetTag -notmatch '^\d{4,5}$')
 Write-Output "You entered a valid asset tag number: $assetTag"
@@ -60,8 +60,8 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #================================================
 #  [PostOS] OOBE CMD Command Line
 #================================================
-Invoke-RestMethod https://raw.githubusercontent.com/caseydaviscec/osdcloud/main/Set-LenovoAssetTag.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\set-lenovoassettag.ps1' -Encoding ascii -Force
-Invoke-RestMethod https://raw.githubusercontent.com/caseydaviscec/osdcloud/refs/heads/main/Autopilot.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\autopilot.ps1' -Encoding ascii -Force
+Invoke-RestMethod https://raw.githubusercontent.com/Colorado-Early-Colleges/osdcloud/refs/heads/main/Set-LenovoAssetTag.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\set-lenovoassettag.ps1' -Encoding ascii -Force
+Invoke-RestMethod https://raw.githubusercontent.com/Colorado-Early-Colleges/osdcloud/refs/heads/main/Autopilot.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\autopilot.ps1' -Encoding ascii -Force
 $OOBECMD = @'
 @echo off
 
