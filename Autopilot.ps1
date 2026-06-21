@@ -467,7 +467,7 @@ Function CustomWindowsAutopilotInfo {
 
 Write-SectionHeader "Get App Secret"
 $ApplicationId = "d0f55dbf-e2ec-4020-bc22-f299c06a737a"
-$SecuredPassword = Get-Content -Path $env:SystemDrive\sources\osdcloud.shh
+$SecuredPassword = Get-Content -Path $env:SystemDrive\OSDCloud\osdcloud.shh
 $tenantID = "756e5b19-b4c4-4dc1-ae63-693179768af4"
 
 $SecuredPasswordPassword = ConvertTo-SecureString -String $SecuredPassword -AsPlainText -Force
