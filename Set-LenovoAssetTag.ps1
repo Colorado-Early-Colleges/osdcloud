@@ -19,7 +19,7 @@ $VerbosePreference = "Continue"
 If ((Get-CimInstance -ClassName "Win32_ComputerSystem").Manufacturer -eq "LENOVO") {
 
     # Variables
-    $input = Get-Content -Path $env:SystemDrive\sources\AssetTag.txt
+    $input = Get-Content -Path $env:SystemDrive\OSDCloud\sources\AssetTag.txt
     $url = "https://download.lenovo.com/pccbbs/mobiles/giaw03ww.exe" # URL to WinAIA Utility
     $pkg = Split-Path $url -Leaf
     $tempDir = Join-Path (Join-Path $env:ProgramData "Lenovo") "Temp"
