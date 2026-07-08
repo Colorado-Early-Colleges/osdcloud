@@ -182,9 +182,9 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #================================================
 #  [PostOS] OOBE CMD Command Line
 #================================================
-Invoke-RestMethod https://raw.githubusercontent.com/caseydaviscec/osdcloud/main/Set-LenovoAssetTag.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\set-lenovoassettag.ps1' -Encoding ascii -Force
-Invoke-RestMethod https://raw.githubusercontent.com/caseydaviscec/osdcloud/refs/heads/main/Lab_Rename-Computer.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\Lab_Rename-Computer.ps1' -Encoding ascii -Force
-Invoke-RestMethod https://raw.githubusercontent.com/caseydaviscec/osdcloud/refs/heads/main/Autopilot.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\autopilot.ps1' -Encoding ascii -Force
+Invoke-RestMethod https://raw.githubusercontent.com/Colorado-Early-Colleges/osdcloud/refs/heads/main/Set-LenovoAssetTag.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\set-lenovoassettag.ps1' -Encoding ascii -Force
+Invoke-RestMethod https://raw.githubusercontent.com/Colorado-Early-Colleges/osdcloud/refs/heads/main/Lab_Rename-Computer.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\Lab_Rename-Computer.ps1' -Encoding ascii -Force
+Invoke-RestMethod https://raw.githubusercontent.com/Colorado-Early-Colleges/osdcloud/refs/heads/main/Autopilot.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\autopilot.ps1' -Encoding ascii -Force
 
 $OOBECMD = @'
 @echo off
