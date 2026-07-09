@@ -1,5 +1,11 @@
 #Script to deploy Windows 11 Lab environment using OSDCloud
 
+# Ensure the OSDCloud Config Scripts directory exists
+$scriptsPath = "X:\OSDCloud\Config\Scripts"
+if (-not (Test-Path $scriptsPath)) {
+    New-Item -Path $scriptsPath -ItemType Directory -Force | Out-Null
+}
+
 # Prompt the user to enter the Asset Tag number
 do {
     Write-Host -ForegroundColor Cyan "Please enter the asset tag number (3 to 5 digit number):"
@@ -45,7 +51,7 @@ If ($BiosPassState.PasswordState -eq 0) {
     If (-not $Passkey) {
         Write-Host -ForegroundColor Red "Bios_Pass.txt not found on any drive or file is empty."
         Write-Host -ForegroundColor White "Exiting Script..."
-            Exit
+        Exit
     }
     Else {
         Write-Host -ForegroundColor Green "Bios_Pass.txt found."
