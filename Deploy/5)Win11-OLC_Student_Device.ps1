@@ -1,7 +1,7 @@
 #Script to deploy Windows 11 Lab environment using OSDCloud
 
 # Ensure the OSDCloud Config Scripts directory exists
-$scriptsPath = "X:\OSDCloud\Config\Scripts"
+$scriptsPath = "X:\sources"
 if (-not (Test-Path $scriptsPath)) {
     New-Item -Path $scriptsPath -ItemType Directory -Force | Out-Null
 }
@@ -11,7 +11,7 @@ do {
     Write-Host -ForegroundColor Cyan "Please enter the asset tag number (3 to 5 digit number):"
     $assetTag = Read-Host
     if ($assetTag -match '^\d{3,5}$') {
-        $assetTag | Out-File -FilePath "X:\OSDCloud\Config\Scripts\AssetTag.txt" -Encoding ascii -Force
+        $assetTag | Out-File -FilePath "X:\sources\AssetTag.txt" -Encoding ascii -Force
     }
 } while ($assetTag -notmatch '^\d{3,5}$')
 Write-Output "You entered a valid asset tag number: $assetTag"
@@ -29,7 +29,7 @@ $computerName = "CECO-Student-$serial"
 # Output the result
 Write-Host "Generated Computer Name: $computerName" -ForegroundColor Yellow
 # Save the computer name to a file
-$computerName | Out-File -FilePath "X:\OSDCloud\Config\Scripts\ComputerName.txt" -Encoding ascii -Force
+$computerName | Out-File -FilePath "X:\sources\ComputerName.txt" -Encoding ascii -Force
 
 
 #================================================
@@ -155,7 +155,7 @@ $OOBEDeployJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.OOBEDeplo
 #================================================
 
 # AssignedComputerName needs to be blank for Self-Deploying Autopilot
-#$AssignedComputerName = Get-Content -Path "X:\OSDCloud\Config\Scripts\ComputerName.txt"
+#$AssignedComputerName = Get-Content -Path "X:\sources\ComputerName.txt"
 
 Write-Host -ForegroundColor Green "Create C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json"
 $AutopilotOOBEJson = @"
@@ -240,7 +240,7 @@ $UnattendPath = "$Panther\Unattend.xml"
 $UnattendXml | Out-File -FilePath $UnattendPath -Encoding utf8 -Width 2000 -Force
 
 Write-Host "Copying USB Drive Scripts"
-Copy-Item X:\OSDCloud\Config\Scripts C:\OSDCloud\ -Recurse -Force
+Copy-Item X:\sources\ C:\OSDCloud\ -Recurse -Force
 
 #=======================================================================
 #   Restart-Computer
